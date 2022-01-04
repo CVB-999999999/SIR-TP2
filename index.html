@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+	<title>TP2 - SIR</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">SIR TP2</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<!-- btn para a sidebar -->
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="offcanvas" href="#sidebar" role="button"
+							aria-controls="sidebar"> Selecionar pessoa </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Sidebar com os botoes para ir diretamente para os cards das pessoas -->
+	<div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="sidebarLabel">Selecionar pessoa</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="d-grid gap-2 p-1 pt-3" id="btns">
+		</div>
+	</div>
+
+	<!-- Cards -->
+	<div class="container mx-auto">
+		<div id="dados">
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="mt-auto text-light bg-dark p-5 text-center">
+		<h4> Sistemas de informação em redes</h4>
+		<h5> Taabalho pratico #2 - JavaScript</h5>
+		<p> &#169 2022 Carlos Vilas Boas </p>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+	</script>
+
+	<script>
+		// Carregar o JSON
+		function readTextFile(file, callback) {
+			var rawFile = new XMLHttpRequest();
+			rawFile.overrideMimeType("application/json");
+			rawFile.open("GET", file, true);
+			rawFile.onreadystatechange = function () {
+				if (rawFile.readyState === 4 && rawFile.status == "200") {
+					callback(rawFile.responseText);
+				}
+			}
+			rawFile.send(null);
+		}
+		readTextFile("./dados/pessoas.json", function (text) {
+			var data = JSON.parse(text);
+
+			// Colocar os cards no ecrã
+			var cards = document.getElementById("dados");
+			var btns = document.getElementById("btns");
+			for (let i in data) {
+				var el = document.createElement("div");
+				el.className = "card p-md-3 p-2 mt-md-4 mt-1";
+				el.id = "card" + i;
+				el.innerHTML =
+					'<div class="row">\n' +
+					'<div class="col-md-4 text-center"> \n' +
+					'<img src="' + data[i].img +
+					'" class="card-img-top p-1 border" alt="Foto Perfil" style="max-width: 60vw;">\n' +
+					'</div>\n' +
+					'<div class="col-md-8">\n' +
+					'<div class="card-body">\n' +
+					'<h3 class="card-title"> ' + data[i].nome + ' </h3>\n' +
+					'<h6 class="card-subtitle mb-2 text-muted"> ' + data[i].numero + ' </h6>\n' +
+					'<p class="card-text"> ' + data[i].curso + ' </p>\n' +
+					'<p class="card-text mt-2"> ' + data[i].obv + '</p> \n' +
+					'</div>\n' +
+					'</div>\n' +
+					'</div>\n';
+
+				cards.append(el);
+
+				// Botao para ir rapidamente para o card
+				var bt = document.createElement("a");
+				bt.className = "btn btn-dark";
+				bt.innerHTML = data[i].nome;
+				bt.href = "#card" + i
+				btns.append(bt)
+			}
+		});
+
+		// API  para mostrar fotos de gatos
+		fetch("https://cataas.com/cat?json=true")
+			.then(function (response) {
+				response.json().then(data => {
+					// do something with your data
+					alert(data)
+				});
+
+			})
+			.catch(function (err) {
+				// If an error occured, you will catch it here
+			});
+	</script>
+</body>
+
+</html>

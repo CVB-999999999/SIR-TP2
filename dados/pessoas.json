@@ -1,0 +1,30 @@
+[
+	{
+		"nome": "Carlos Vilas Boas",
+		"numero": "23466",
+		"curso": "Engenharia Informatica",
+		"img": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-GUldEbl6rF0%2FTvX3JJ9wk0I%2FAAAAAAAAA6g%2Fz0SDBOS80B4%2Fw1200-h630-p-k-no-nu%2FGordon_crowbar_enemies.jpg&f=1&nofb=1",
+		"obv": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita id adipisci recusandae. Ullam fugit dolore praesentium. Eveniet porro dolores eligendi doloremque dolorem illo sunt, expedita inventore. Sequi expedita autem ipsam."
+	},
+	{
+		"nome": "Paulo Garrido",
+		"numero": "12345",
+		"curso": "Engenharia Informatica",
+		"img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thefamouspeople.com%2Fprofiles%2Fimages%2Ffernando-pessoa-3.jpg&f=1&nofb=1",
+		"obv": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor consequatur cupiditate optio praesentium. Provident, sed, rem optio accusamus fugiat excepturi ducimus cum quas veniam magni sint dolore voluptates. Deserunt, vitae!"
+	},
+	{
+		"nome": "Pedro Silva",
+		"numero": "234423",
+		"curso": "Engenharia Informatica",
+		"img": "https://vignette4.wikia.nocookie.net/one-piece/images/c/c2/Roronoa-Zoro-poster-by-Kaka.png/revision/latest?cb=20130211001631&path-prefix=pt-br",
+		"obv": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium natus tempore obcaecati, nobis ipsam numquam ratione ab, praesentium corrupti, sint delectus asperiores reiciendis perspiciatis laudantium dolorem doloremque a voluptatum quam."
+	},
+	{
+		"nome": "Pedro Ferreira",
+		"numero": "82901",
+		"curso": "Engenharia Informatica",
+		"img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd-tm.ppstatic.pl%2Fkadry%2F51%2F54%2F228190b98b40bd86e8b03db741a1.1000.jpg&f=1&nofb=1",
+		"obv": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. In laudantium perspiciatis, iure, reprehenderit dolore placeat quas accusamus quasi fugiat doloribus voluptatibus sit aliquid dolores maxime ipsa similique. Reprehenderit, adipisci saepe."
+	}
+]
