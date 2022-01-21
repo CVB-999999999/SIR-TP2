@@ -11,7 +11,7 @@ function readTextFile(file, callback) {
 	rawFile.send(null);
 }
 
-let num = 0;
+// let num = 0;
 
 readTextFile("./dados/pessoas.json", function (text) {
 	var data = JSON.parse(text);
@@ -51,7 +51,7 @@ readTextFile("./dados/pessoas.json", function (text) {
 		bt.innerHTML = data[i].nome;
 		bt.href = "#card" + i
 		btns.append(bt);
-		num = parseInt(i) + 1;
+		// num = parseInt(i) + 1;
 	}
 });
 
@@ -96,8 +96,8 @@ async function getWeather() {
 			if (!res.ok) {
 				// Not found
 				if (res.status == '404') {
-					alert('Parametros incoretos');
-					doc.innerHTML('Parametros incoretos')
+					// alert('Parametros incoretos');
+					doc.innerHTML = 'Parametros incoretos'
 					return;
 				}
 			}
@@ -117,7 +117,7 @@ async function getWeather() {
 		} catch (error) {
 			console.log(error);
 		}
-		alert(num);
+		// alert(num);
 	}
 }
 
